@@ -1,17 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, request
-from flask_caching import Cache
-import pandas as pd
-import time
-import datetime
-import os
+from flask import Flask, render_template
 import json
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
 # create the app object
 app = Flask(__name__)
-cache = Cache(app,config={'CACHE_TYPE': 'simple'})
-
 
 # load the movies data from local JSON 
 with open(r"resources\movies.json", 'r') as f:
