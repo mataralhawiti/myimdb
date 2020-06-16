@@ -1,0 +1,6 @@
+- fix duplicate loading in refreesh
+- get counts
+- load all data
+- one JSON file
+- enable logging
+- error handling

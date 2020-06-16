@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<br>
+
+<div class="row">
+<div class="container" align="center">
+      <button type="button" class="btn btn-secondary btn-lg">All</button>
+      <button type="button" class="btn tn-secondary btn-lg">1</button>
+      <button type="button" class="btn tn-secondary btn-lg">2</button>
+      <button type="button" class="btn tn-secondary btn-lg">3</button>
+      <button type="button" class="btn tn-secondary btn-lg">4</button>
+      <button type="button" class="btn tn-secondary btn-lg">5</button>
+      <button type="button" class="btn tn-secondary btn-lg">6</button>
+      <button type="button" class="btn tn-secondary btn-lg">7</button>
+      <button type="button" class="btn tn-secondary btn-lg">8</button>
+      <button type="button" class="btn tn-secondary btn-lg">9</button>
+      <button type="button" class="btn tn-secondary btn-lg">10</button>
+    <!-- <button type="button" class="btn btn-danger btn-lg">Exit</button> -->
+  </div>
+</div>
+<p align="center"><small class="text-dark" >Filter By Rating</small></p>
+<!-- <br><br> -->
+
+
+<div class="card-columns">
+    {% for i in movies %}
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="card" class="shadow p-3 mb-5 bg-white rounded">
+        <img class="card-img-top" src={{i.poster}} alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title">{{i.name}}</h4>
+            <p class="card-text">{{i.desc}}</p>
+          <div style="overflow: hidden;">
+              <p class="card-text" style="float: left;"><small class="text-muted">{{i.year}}</small></p>
+              <p class="card-text" style="float: right;"><small class="text-muted"><mark><strong>{{i.rating}}</strong></mark></small></p>
+          </div>
+        </div>
+    </div>
+
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
