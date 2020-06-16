@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import os
 import json
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -7,11 +8,13 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 
 # load the movies data from local JSON 
-with open(r"resources\movies.json", 'r') as f:
+movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
+with open(movies, 'r') as f:
     movies = [i for i in json.load(f)]
 
 # load movies last update date and count from local JSON
-with open(r"resources\movies_names.json", 'r') as f:
+movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
+with open(movies_names, 'r') as f:
     main_json = json.load(f)
     count = main_json["count"]
     last_updated_date = main_json["Last_full_load"]

@@ -2,3 +2,4 @@ requests==2.20.1
 Flask==1.1.2
 Flask_Caching==1.4.0
 beautifulsoup4==4.9.1
+gunicorn==20.0.4
