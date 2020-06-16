@@ -19,3 +19,9 @@ You are building a Docker image from Windows against a non-Windows Docker host.
 All files and directories added to build context will have '-rwxr-xr-x' permissions. 
 It is recommended to double check and reset permissions for sensitive files and directories.
 """
+
+--- docker commands :
+
+docker pull matar86/myimdb
+
+docker run -d -p 5000:5000 myimdb
