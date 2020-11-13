@@ -1,5 +1,4 @@
-requests==2.20.1
+requests==2.22.0
 Flask==1.1.2
-Flask_Caching==1.4.0
-beautifulsoup4==4.9.1
+beautifulsoup4==4.9.3
 gunicorn==20.0.4

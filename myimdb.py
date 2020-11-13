@@ -8,6 +8,7 @@ https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements-txt/
 """
 
 __author__ = 'Matar'
+import os
 import sys
 import re
 import json
@@ -88,7 +89,8 @@ def get_movies_dtls(urls, movies=None, mode="full") :
 
     if mode == "refresh":
         movies, urls = refresh_movies_list()
-        with open(r"resources\movies.json", 'r') as f:
+        p_movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
+        with open(p_movies, 'r') as f:
             movies_list = json.load(f)
 
     for index, url in enumerate(urls):
@@ -137,19 +139,22 @@ def movie_poster(link, movie_id):
     # extact high quilty poster url
     poster_req = make_request(main_url+movei_dtls)
     poster_soup = BeautifulSoup(poster_req, 'html.parser')
-    poster_link = poster_soup.find_all("script")
-    tag = poster_link[1].get_text().strip()
-    tag = tag[:-1]
-    tag = tag.replace('window.IMDbMediaViewerInitialState = ', '')
-    tag = tag.replace("'mediaviewer'", '"mediaviewer"')
-    data = json.loads(tag)
-    data1 = data["mediaviewer"]["galleries"][movie_id]["allImages"]
-    poster = ''
-    for i in data1:
-        if i.get("id") == movei_dtls.split('/')[-1]:
-            poster = i.get("src")
-            break
-    return poster
+    poster_link = poster_soup.find("img")["src"]
+    
+
+    # poster_link = poster_soup.find_all("script")
+    # tag = poster_link[1].get_text().strip()
+    # tag = tag[:-1]
+    # tag = tag.replace('window.IMDbMediaViewerInitialState = ', '')
+    # tag = tag.replace("'mediaviewer'", '"mediaviewer"')
+    # data = json.loads(tag)
+    # data1 = data["mediaviewer"]["galleries"][movie_id]["allImages"]
+    # poster = ''
+    # for i in data1:
+    #     if i.get("id") == movei_dtls.split('/')[-1]:
+    #         poster = i.get("src")
+    #         break
+    return poster_link
 
 
 def refresh_movies_list():
@@ -157,7 +162,8 @@ def refresh_movies_list():
     """
     movies_names = get_movies_names(links_list())
     # load movies name that have been processed before
-    with open(r"resources\movies_names.json", 'r') as f:
+    p_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
+    with open(p_movies_names, 'r') as f:
         main_json = json.load(f)["movies_names"]
     
     new_moives = list(set(movies_names.keys()).symmetric_difference(set(main_json)))
@@ -173,38 +179,42 @@ def update_movies_json(movies_list):
     return: None
     """
     # movies.json, main file with all details
-    with open(r"resources\movies.json", "w") as f:
+    movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
+    with open(movies, "w") as f:
         json.dump(movies_list, f)
 
     # movies_names.json used for lookup in refresh
-    with open(r"resources\movies_names.json", "w") as f:
+    p_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
+    with open(p_movies_names, "w") as f:
         json.dump(dict(count=len(movies_list), \
             Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), \
             movies_names = [movie["name"] for movie in movies_list] ), f)
 
 def main():
-    urls = links_list()
-    movies = get_movies_dtls(urls)
-    update_movies_json(movies)
 
-    # # write out movies to JSON
-    # with open(r"resources\movies.json", "w") as f:
-    #     json.dump(movies, f)
-    # refresh_movies_list()
-
+    # # get moives names
     # urls = links_list()
     # names = get_movies_names(urls)
-    # movies = [i for i in names.keys()]
+    # movies_names = [i for i in names.keys()]
 
-    # with open(r"resources\movies_names.json", "w") as f:
-    #     json.dump(dict(count=267, \
-    #         Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), movies_names = movies), f)
+    # f_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
 
-    # names, urls = refresh_movies_list()
-    # print(names)
-    # print(urls)
+    # with open(f_movies_names, "w") as f:
+    #     json.dump(dict(count=len(movies_names), \
+    #         Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), movies_names = movies_names), f)
+    # # end moives names
 
-    
+
+    # # load moives data
+    # urls = links_list()
+    # movies = get_movies_dtls(urls)
+
+    # f_movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
+    # with open(f_movies, "w") as f:
+    #     json.dump(movies, f)
+    # # end loading moives data
+
+
 
 
 if __name__ == "__main__" :
