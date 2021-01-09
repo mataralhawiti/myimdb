@@ -12,13 +12,13 @@ The main goal of this project to practice containers and Kubernetes.
 # Run in on Minikube
 First, in seprated window start minibuke tunnling :
 
-> minikube tunnel
+``` minikube tunnel ```
 
 Then :
 
-> kubectl apply -f myimdb-deployment.yaml
+``` kubectl apply -f myimdb-deployment.yaml ```
 
-> kubectl apply -f myimdb-service.yaml
+``` kubectl apply -f myimdb-service.yaml ```
 
 
 The app should be accessable on :
