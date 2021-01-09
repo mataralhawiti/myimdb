@@ -8,3 +8,19 @@ The main goal of this project to practice containers and Kubernetes.
 - Make the app interactive using JS to enable filtering by rating, then redoply the new app (container)
 - Implement refresh functionality
 - Try different settings and concepts of Kubernetes
+
+# Run in on Minikube
+First, in seprated window start minibuke tunnling :
+
+> minikube tunnel
+
+Then :
+
+> kubectl apply -f myimdb-deployment.yaml
+
+> kubectl apply -f myimdb-service.yaml
+
+
+The app should be accessable on :
+
+``` http://127.0.0.1:5000/ ``` 
