@@ -10,11 +10,11 @@ The main goal of this project to practice containers and Kubernetes.
 - Try different settings and concepts of Kubernetes
 
 ## Run it on Minikube
-First, in seprated window start minibuke tunnling :
+**First**, in a separate terminal window start minibuke tunnling :
 
 ``` minikube tunnel ```
 
-Then :
+Then, in a different terminal window  :
 
 ``` kubectl apply -f myimdb-deployment.yaml ```
 
