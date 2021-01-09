@@ -9,7 +9,7 @@ The main goal of this project to practice containers and Kubernetes.
 - Implement refresh functionality
 - Try different settings and concepts of Kubernetes
 
-# Run in on Minikube
+## Run it on Minikube
 First, in seprated window start minibuke tunnling :
 
 ``` minikube tunnel ```
