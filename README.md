@@ -1,5 +1,5 @@
 # myimdb
-Simple Flask app to pull movies that I rated on IMDB and present them in better view with the rating.
+Simple Flask app to pull movies that I rated on IMDB and present them in better view with the ratings.
 The main goal of this project to practice containers and Kubernetes.
 - Flask app to scrape IMDB using BeautifulSoup.
 - containeriz the app using Docker.
