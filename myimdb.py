@@ -190,32 +190,30 @@ def update_movies_json(movies_list):
             Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), \
             movies_names = [movie["name"] for movie in movies_list] ), f)
 
-def main():
+# def main():
 
-    # # get moives names
-    # urls = links_list()
-    # names = get_movies_names(urls)
-    # movies_names = [i for i in names.keys()]
+#     # # get moives names
+#     # urls = links_list()
+#     # names = get_movies_names(urls)
+#     # movies_names = [i for i in names.keys()]
 
-    # f_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
+#     # f_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
 
-    # with open(f_movies_names, "w") as f:
-    #     json.dump(dict(count=len(movies_names), \
-    #         Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), movies_names = movies_names), f)
-    # # end moives names
-
-
-    # # load moives data
-    # urls = links_list()
-    # movies = get_movies_dtls(urls)
-
-    # f_movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
-    # with open(f_movies, "w") as f:
-    #     json.dump(movies, f)
-    # # end loading moives data
+#     # with open(f_movies_names, "w") as f:
+#     #     json.dump(dict(count=len(movies_names), \
+#     #         Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), movies_names = movies_names), f)
+#     # # end moives names
 
 
+#     # # load moives data
+#     # urls = links_list()
+#     # movies = get_movies_dtls(urls)
+
+#     # f_movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
+#     # with open(f_movies, "w") as f:
+#     #     json.dump(movies, f)
+#     # # end loading moives data
 
 
-if __name__ == "__main__" :
-	main()
+# if __name__ == "__main__":
+#     main()
