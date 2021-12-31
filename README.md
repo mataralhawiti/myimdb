@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/mataralhawiti/myimdb)
+
 # myimdb
 A simple Flask app to pull movies that I rated on IMDB and present them in better view with the ratings.
 The main goal of this project to practice containers and Kubernetes.
