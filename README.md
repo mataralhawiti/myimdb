@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/mataralhawiti/myimdb)
+![License](https://img.shields.io/github/license/mataralhawiti/myimdb)(LICENSE)
 
 # myimdb
 A simple Flask app to pull movies that I rated on IMDB and present them in better view with the ratings.
