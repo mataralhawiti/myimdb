@@ -106,9 +106,13 @@ def get_movies_dtls(urls, movies=None, mode="full") :
             year = item.find("h3", class_='lister-item-header').find(class_="lister-item-year text-muted unbold").get_text()
             rating = item.find("div", class_='ipl-rating-star ipl-rating-star--other-user small').find("span",class_="ipl-rating-star__rating").get_text()
             desc = item.find("div", class_='lister-item-content').find("p",class_='').get_text().strip()
-            link = item.find("h3", class_='lister-item-header').find("a")['href']
+            # link = item.find("h3", class_='lister-item-header').find("a")['href']
+            # link = item.find("div", class_='lister-item-image ribbonizer').find("a")
+            link = '/title/'+movie_id+'/'
+            link2 = item.find("a", class_='ipc-lockup-overlay ipc-focusable')["href"]
+            print(link2)
+            break
             poster = movie_poster(link, movie_id)
-            
             # build movie dict
             movie_info = {
             "movie_id" : movie_id,
@@ -124,23 +128,28 @@ def get_movies_dtls(urls, movies=None, mode="full") :
             movies_names.append(name)
             print(name)
             time.sleep(3)
+            break
 
         # sleep before processing next page
         print(f"done processing page {index+1}")
         time.sleep(20)
+        break
     return movies_list
 
 def movie_poster(link, movie_id):
+    print(link)
+    print(main_url+link)
+    time.sleep(10)
 	# get movie details to extact high quilty poster page
     movie_dtls_req = make_request(main_url+link)
     movie_soup = BeautifulSoup(movie_dtls_req, 'html.parser')
     movei_dtls = movie_soup.find("div", class_='poster').find("a")['href'] # movei_dtls -> "/title/tt0443706/mediaviewer/rm3361097728"
-
     # extact high quilty poster url
     poster_req = make_request(main_url+movei_dtls)
     poster_soup = BeautifulSoup(poster_req, 'html.parser')
     poster_link = poster_soup.find("img")["src"]
-    
+    print(poster_link)
+    time.sleep(60)
 
     # poster_link = poster_soup.find_all("script")
     # tag = poster_link[1].get_text().strip()
@@ -190,30 +199,29 @@ def update_movies_json(movies_list):
             Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), \
             movies_names = [movie["name"] for movie in movies_list] ), f)
 
-# def main():
+def main():
 
-#     # # get moives names
-#     # urls = links_list()
-#     # names = get_movies_names(urls)
-#     # movies_names = [i for i in names.keys()]
+    # get moives names
+    # urls = links_list()
+    # names = get_movies_names(urls)
+    # movies_names = [i for i in names.keys()]
 
-#     # f_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
+    # f_movies_names = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies_names.json')))
 
-#     # with open(f_movies_names, "w") as f:
-#     #     json.dump(dict(count=len(movies_names), \
-#     #         Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), movies_names = movies_names), f)
-#     # # end moives names
+    # with open(f_movies_names, "w") as f:
+    #     json.dump(dict(count=len(movies_names), \
+    #         Last_full_load= datetime.date.today().strftime("%m-%d-%Y"), movies_names = movies_names), f)
+    # print("# end moives names")
+
+    # load moives data
+    urls = links_list()
+    movies = get_movies_dtls(urls)
+
+    f_movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
+    with open(f_movies, "w") as f:
+        json.dump(movies, f)
+    print("# end loading moives data")
 
 
-#     # # load moives data
-#     # urls = links_list()
-#     # movies = get_movies_dtls(urls)
-
-#     # f_movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resources'), 'resources/movies.json')))
-#     # with open(f_movies, "w") as f:
-#     #     json.dump(movies, f)
-#     # # end loading moives data
-
-
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
