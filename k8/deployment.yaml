@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myimdb-deployment
+  name: myimdb
   labels:
     app: myimdb
 spec:
@@ -15,7 +15,7 @@ spec:
         app: myimdb
     spec:
       containers:
-        - name: myimdb
-          image: docker.io/matar86/myimdb:latest
+        - name: myimdbapp
+          image: docker.io/matar86/myimdb:v2
           ports:
             - containerPort: 5000
