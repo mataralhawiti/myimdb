@@ -1,0 +1,16 @@
+# Docker 
+docker build --tag matar86/myimdb:v2 .
+#docker tag myimdb:v2 matar86/myimdb:v2
+docker push matar86/myimdb:v2
+
+
+
+# Helm
+mkdir charts
+cd charts
+helm myimdb
+---------------------------------------------------------------------------------
+helm template movies .\charts\myimdb\ --output-dir .\temp\
+helm install <full name override> <chart name>/ --values <chart name>/values.yaml
+helm install phoenix-chart phoenixnap/ --values phoenixnap/values.yaml
+helm install movies .\charts\myimdb
