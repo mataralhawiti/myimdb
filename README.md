@@ -10,17 +10,30 @@ The main goal of this project to practice containers and Kubernetes.
 - Implement refresh functionality
 - Try different settings and concepts of Kubernetes
 
-## Run it on Minikube
-**First**, in a separate terminal window start minibuke tunnling :
+## Run it on Minikube (Manually)
+
+**First**, in a terminal window  :
+
+``` kubectl apply -f .\k8\deployment.yaml ```
+
+``` kubectl apply -f .\k8\service.yaml ```
+
+**Then**, in a separate terminal window start minibuke tunnling :
 
 ``` minikube tunnel ```
 
-Then, in a different terminal window  :
+The app should be accessable on :
 
-``` kubectl apply -f myimdb-deployment.yaml ```
+``` http://127.0.0.1:5000/ ``` 
 
-``` kubectl apply -f myimdb-service.yaml ```
 
+## Run it on Minikube (Helm Chart)
+
+``` helm install movies .\charts\myimdb ``` 
+
+**Then**, in a separate terminal window start minibuke tunnling :
+
+``` minikube tunnel ```
 
 The app should be accessable on :
 
