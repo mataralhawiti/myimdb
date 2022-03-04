@@ -23,7 +23,6 @@ def index():
         last_updated_date = date.today().strftime("%m-%d-%Y")
         )
 
-
 # start the server with 'run()' method
 if __name__ == '__main__' :
     app.run(debug=True, host='0.0.0.0')
