@@ -18,4 +18,6 @@ spec:
         - name: myimdbapp
           image: docker.io/matar86/myimdb:v2
           ports:
-            - containerPort: 5000
+            - name: tcp
+              containerPort: 5000
+              protocol: TCP

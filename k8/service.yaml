@@ -9,5 +9,7 @@ spec:
     app: myimdb
   type: LoadBalancer
   ports:
-    - port: 5000
+    - name: tcp
+      protocol: TCP
+      port: 5000
       targetPort: 5000
