@@ -30,3 +30,24 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 -----
 k port-forward svc/matar-myimdb 5000:5000
+----
+helm show chart .
+10035410738
+---
+
+Container Runtime (Docker) will present a unique netwowrk namespace, and filesystem for the container.
+All containers in pod share same netwowrk namespace, and Opentionally filesystem volums
+Pod : containers that share same netwowrk namespace
+
+ReplicaSet: deploy mutlipl identical pods at once. Rarely used directly.
+deployment : manges ReplicaSet because lays over it Rolling update functionality
+Service : provides stable netwotk address for the application inlcludingV virtual IP and local DNS entry within the cluster.
+
+Lables at deployment Metadata tells the deployment to mange all pods with that selector.
+Then, in pod selctors we add that Lable.
+
+Service understands what pods to route traffic to based on Pod selctors.
+
+---- Docker
+WORKDIR
+ENTRYPOINT VS CMD

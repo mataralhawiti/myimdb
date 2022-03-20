@@ -2,6 +2,15 @@ apiVersion: v2
 name: myimdb
 description: A Helm chart to run your scrapped IMDB ratings list
 
+keywords:
+  - IMDB
+  - scrapping
+  - python
+  - flask
+
+maintainers:
+  - name: Matar A
+    email: matar@linux.com
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
