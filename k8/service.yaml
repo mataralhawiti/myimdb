@@ -7,9 +7,9 @@ metadata:
 spec:
   selector:
     app: myimdb
-  type: LoadBalancer
+  type: NodePort #LoadBalancer
   ports:
-    - name: tcp
+    - name: http
       protocol: TCP
       port: 5000
       targetPort: 5000

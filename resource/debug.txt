@@ -14,3 +14,19 @@ helm template movies .\charts\myimdb\ --output-dir .\temp\
 helm install <full name override> <chart name>/ --values <chart name>/values.yaml
 helm install phoenix-chart phoenixnap/ --values phoenixnap/values.yaml
 helm install movies .\charts\myimdb
+----------------------------------------------------------------------------------
+helm template releasename . --debug
+helm template releasename . -s templates/deployment.yaml
+helm template releasename . -s templates/deployment.yaml --set owner=Ali
+-----------------------------
+k get all
+-------------
+k cluster-info 
+
+Kubernetes control plane is running at https://127.0.0.1:55844
+CoreDNS is running at https://127.0.0.1:55844/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+-----
+k port-forward svc/matar-myimdb 5000:5000

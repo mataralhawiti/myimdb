@@ -17,7 +17,14 @@ spec:
       containers:
         - name: myimdbapp
           image: docker.io/matar86/myimdb:v2
+          resources:
+            limits:
+              cpu: "20m"
+              memory: "50Mi"
+            requests:
+              cpu: "10m"
+              memory: "50Mi"
           ports:
-            - name: tcp
+            - name: http
               containerPort: 5000
               protocol: TCP

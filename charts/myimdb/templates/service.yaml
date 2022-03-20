@@ -1,15 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "myimdb.fullname" . }}
+  #name: {{ printf "%s-%s" .Release.Name .Chart.Name }}
+  # we can use Template Macro here (_helper.tpl)
+  name: {{ template "myimdb.fullname" . }}
   labels:
-    {{- include "myimdb.labels" . | nindent 4 }}
+    app: {{ .Chart.Name }}
 spec:
+  selector:
+    app: {{ .Chart.Name }}
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: 5000
+    - name: http
       protocol: TCP
-      name: tcp
-  selector:
-    {{- include "myimdb.selectorLabels" . | nindent 4 }}
+      port: {{ .Values.service.port }}
+      targetPort: 5000
