@@ -51,3 +51,94 @@ Service understands what pods to route traffic to based on Pod selctors.
 ---- Docker
 WORKDIR
 ENTRYPOINT VS CMD
+
+
+
+---------------------
+
+# Cloud Native princples:
+Container package
+    isolated unit of work that doesn't requireme os depencies
+
+Dynamically managed
+    actively schuled and managed by orchristaion process
+
+Microaervice orinted
+    loosly coupled with depencies explcitily described
+
+# 
+Impreative (I tell the machine what to do)  - defines actions
+vs 
+declarative (how I want things to be, and machine will do) - defines desired state
+
+
+
+###
+- pods : 
+    smallest unit
+    sepration of concernes
+    one or more containers
+    exist for a one reason
+    charestics of pod (assumtions):
+        1. all containers for pod will run on the same node/host
+        2. containers within the pod can talk to each others over local host
+        3. containers can share volume resouces
+
+    main container vs sidecar containers - web app example :
+    sidecar containers help :
+        logic can be included in main container
+        sepration allows for isolation and reuse
+        each container can have seprate resource allocation
+
+responsibilty and resuablity, standariztion
+
+standariztion:
+    REST API, all external and internal compoenents communicate via same API - Transperatcy
+    explict versions
+    provides abstracte layer on top of resouce storage (etcd)
+
+
+- yaml
+    apiVersion:
+    Kind:
+    Metadata:
+        name:
+        lables:
+            app:xx
+    --------------------------------- above 3 tags can considered like a header, below con consider payload (schema of the kind above)
+    spec:
+        containers
+            xx
+                xx
+
+
+
+## kubectl
+- declarative (prefered) :
+    kubectl -f apply ffff.yam
+- Impreative 
+    kubectl create/replace/patch/edit xxx
+
+
+
+- Service
+    load balance for pods
+    use lables to determie the target pods
+    services are not processes, it's more configrations and Metadata
+
+- deployment
+    Metadata.name (is unique) .. think of have 20 replicas of our pod !! that's not the case when we use deployment
+    Pod spec is nested
+    leverage Selectors
+
+- lables
+    map key/value
+    both orignizal and functionl (selectors in the service)
+    indexed and serachable
+
+    avoid compound lables values
+        app: blog-frontend (compound)
+        app: blog / tier: frontend (better, seprate)
+
+    try to stanized key/value across the cluster
+
