@@ -8,8 +8,9 @@ logging.basicConfig(level=logging.DEBUG)
 # create the app object
 app = Flask(__name__)
 
-# load the movies data from local JSON 
-movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resource'), 'resource/async_movies_full.json')))
+# load the movies data from local JSON
+SOURCE = "dummy"
+movies = os.path.abspath(os.path.realpath(os.path.join(os.path.dirname('resource'), f"resource/{SOURCE}.json")))
 with open(movies, 'r') as f:
     movies = [i for i in json.load(f)]
 
