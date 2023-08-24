@@ -24,7 +24,6 @@
   {% for i in movies %}
   <div class="shadow-sm p-3 mb-5 bg-white rounded">
     <div class="card" class="shadow p-3 mb-5 bg-white rounded">
-      <!-- {{ url_for('resource', filename='images/apple.jpg') }} -->
       <img class="card-img-top" src="{{i.poster}}" alt="Card image cap" />
       <div class="card-body">
         <h5 class="card-title">{{i.name}} ({{i.year}})</h5>
