@@ -11,7 +11,7 @@
         ],
         "rating": 7,
         "desc": "In the 1970s, an anchorman's stint as San Diego's top-rated newsreader is challenged when an ambitious newswoman becomes his co-anchor.",
-        "poster": "resource/poster/tt0357413.jpg",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ2MzYwMzk5Ml5BMl5BanBnXkFtZTcwOTI4NzUyMw@@._V1_.jpg",
         "vote": 369629
     },
     {
@@ -27,7 +27,7 @@
         ],
         "rating": 7,
         "desc": "Goaded by his buddies, a nerdy guy who's never \"done the deed\" only finds the pressure mounting when he meets a single mother.",
-        "poster": "resource/poster/tt0357413.jpg",
+        "poster": "https://m.media-amazon.com/images/M/MV5BNWY1NDI0ZTQtMjJiNS00ODY4LWE1NmUtYTkwNzY3NWQ0ZDZjXkEyXkFqcGdeQXVyMTM0NTc2NDgw._V1_.jpg",
         "vote": 453796
     },
     {
@@ -94,23 +94,6 @@
         "desc": "In the slums of Rio, two kids' paths diverge as one struggles to become a photographer and the other a kingpin.",
         "poster": "https://m.media-amazon.com/images/M/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
         "vote": 778370
-    },
-    {
-        "movie_id": "tt0208003",
-        "movie_url": "https://www.imdb.com/title/tt0208003",
-        "name": "Big Momma's House",
-        "year": 2000,
-        "certificate": "PG-13",
-        "runtime": "1 hr 39 min",
-        "genre": [
-            "Action",
-            "Comedy",
-            "Crime"
-        ],
-        "rating": 5,
-        "desc": "In order to protect a beautiful woman and her son from a robber, a male FBI agent disguises himself as a large grandmother.",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTcyMjdlYmUtNjQ1Zi00YTg3LTliNTgtZmNkOTRmYzEzYTMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-        "vote": 88745
     },
     {
         "movie_id": "tt0094894",
