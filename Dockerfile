@@ -1,7 +1,7 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
-FROM python:3.8-slim-buster
+FROM python:3.10-slim-buster
 
-LABEL Name=myimdb_app
+LABEL Name=gomovies
 
 EXPOSE 5000
 
