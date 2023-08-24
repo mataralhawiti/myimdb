@@ -96,22 +96,6 @@
         "vote": 778370
     },
     {
-        "movie_id": "tt0421729",
-        "movie_url": "https://www.imdb.com/title/tt0421729",
-        "name": "Big Momma's House 2",
-        "year": 2006,
-        "certificate": "PG-13",
-        "runtime": "1 hr 39 min",
-        "genre": [
-            "Comedy",
-            "Crime"
-        ],
-        "rating": 4,
-        "desc": "An FBI agent reprises his disguise as a corpulent old lady and takes a job as a nanny in a crime suspect's house.",
-        "poster": "https://m.media-amazon.com/images/M/MV5BZjZmYTQ3OTktODkzYy00YmQxLTgxMjEtY2ZkZDY4MDYzNDNmXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg",
-        "vote": 45360
-    },
-    {
         "movie_id": "tt0208003",
         "movie_url": "https://www.imdb.com/title/tt0208003",
         "name": "Big Momma's House",
