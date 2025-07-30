@@ -10,6 +10,14 @@ The main goal of this project to practice containers and Kubernetes.
 - Implement refresh functionality
 - Try different settings and concepts of Kubernetes
 
+## Run locally
+TDB
+
+```python.exe .\sync_scrapper.py```
+
+```python.exe .\app.py```
+
+
 ## Run it on Minikube (Manually)
 
 **First**, in a terminal window  :

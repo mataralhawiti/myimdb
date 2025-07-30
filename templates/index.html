@@ -26,16 +26,18 @@
     <div class="card" class="shadow p-3 mb-5 bg-white rounded">
       <img class="card-img-top" src="{{i.poster}}" alt="Card image cap" />
       <div class="card-body">
-        <h4 class="card-title">{{i.name}}</h4>
+        <h5 class="card-title">{{i.name}} ({{i.year}})</h5>
         <p class="card-text">{{i.desc}}</p>
         <div style="overflow: hidden">
           <p class="card-text" style="float: left">
-            <small class="text-muted">{{i.year}}</small>
+            <!-- <small class="text-muted">{{i.year}}</small> -->
+            {% for g in i.genre %}
+            <!-- <small class="text-primary">{{g}}</small> -->
+            <small class="text-muted"><mark>{{g}}</mark></small>
+            {% endfor %}
           </p>
           <p class="card-text" style="float: right">
-            <small class="text-muted"
-              ><mark><strong>{{i.rating}}</strong></mark></small
-            >
+            <small class="text-muted"><strong>{{i.rating}}</strong></small>
           </p>
         </div>
       </div>
